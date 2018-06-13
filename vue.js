@@ -8,7 +8,7 @@ var content = new Vue({
         editedTodo:null,
     },
     created(){
-        this.todos =JSON.parse(localStorage.getItem(STORAGE_KEY)) || '[]'
+        this.todos =JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
      //重整頁面後代辦事項不因重整而清除
     },
     methods: {
