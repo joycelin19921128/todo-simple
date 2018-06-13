@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,41 @@
     <title>Document</title>
     <link rel="stylesheet" href="all.css">
 </head>
+
 <body>
     <div class="wrap">
-        <img src="clip2.png" alt="">
-        <header></header>
-
-
-        <nav></nav>
-
+        <img src="clip.png" alt="">
 
         <div id="content">
-         <h1>To do what?</h1>
-         <input type="text" class="text">
-         <button class="btn">送出</button>        
-             <ul class="list"></ul>
-         </div>
-
-       
-
-
-
-
+            <h1>To do what?</h1>
+            <input type="text" placeholder="You should do..." class="text" v-model="newTodo">
+            <!--輸入的待辦事項將由newTodo存取-->
+            <button v-on:click="addTodo(newTodo)" class="btn">送出</button>
+            <!--按下按鈕後將帶著以存取資料的newTodo觸發addTotdo的功能-->
+            <ul class="list">
+                <li v-for='todo in todos' 
+                :class="{editing:todo == editedTodo}">
+                <!--跑迴圈渲染出更新資料-->
+                <div class="view">
+                        <a href="#" @click.prevent="removeTodo(todo)">刪除 -</a>               
+                        <label @dblclick="editTodo(todo)" >{{todo.content}}</label>
+                        <!--點選兩次代辦事項可以做編輯觸發了帶有todo的editTodo的功能-->
+                      
+                </div>                    
+                    <input type="text" class="edit" v-model="todo.content"
+                @blur="doneEdit(todo)"
+                @keyup.enter="doneEdit(todo)">
+                <!--按下enter完成編輯-->
+                </li>
+                
+            </ul>
+        </div>
 
 
     </div>
-    <script src="all.js"></script>
+    <!--vue 引用-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="vue.js"></script>
 </body>
+
 </html>

@@ -117,6 +117,16 @@ input{
     margin: 0 auto; 
     text-align: left;
 }
+.list li .edit{
+    display: none;
+
+}
+.list .editing .edit{
+    display: block;
+}
+.list .editing .view{
+    display: none;
+}
 a{
     text-decoration: none;
     color:#4682B4;    
@@ -129,4 +139,3 @@ span{
     font-weight: bold;
     padding: 5px 0 5px 50px;
 }
-
