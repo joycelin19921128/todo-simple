@@ -8,7 +8,7 @@ var content = new Vue({
         editedTodo:null,
     },
     created(){
-        this.todos =JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+        this.todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
      //重整頁面後代辦事項不因重整而清除
     },
     methods: {
@@ -17,7 +17,8 @@ var content = new Vue({
             //vue需要透過this去取資料          
             localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
             //將資料存在localstorage
-
+            this.newTodo = ''
+            //清空輸入欄
         },
         removeTodo: function (todo) {
             this.todos.splice(this.todos.indexOf(todo), 1);
