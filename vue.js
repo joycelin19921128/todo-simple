@@ -12,14 +12,10 @@ var content = new Vue({
      //重整頁面後代辦事項不因重整而清除
     },
     methods: {
-        addTodo: function (todo) {
-            this.todos.push({
-                content: todo,
-                completed: false,                       
-            })
-            //vue需要透過this去取資料
-            
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos))
+        addTodo(todo) {
+            this.todos.push({content:todo,completed:false,})
+            //vue需要透過this去取資料          
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
             //將資料存在localstorage
 
         },
